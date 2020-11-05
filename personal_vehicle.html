@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> OnlineStudentManagement</title>
+    <link rel="stylesheet" href="Admin/vendors/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="Admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="Admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="Admin/vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="Admin/vendors/chartist/chartist.min.css">
+
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="Admin/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="Admin/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="login/css/main.css">
+    <link rel="stylesheet" type="text/css" href="login/css/util.css">
+    <link rel="stylesheet" type="text/css"  media="all" href="Admin/css/mobile-view.css">
+    <link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Admin/vendors/js/vendor.bundle.base.js"></script>
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+        .email-error, .pass-error, .conpass-error {
+            margin-top: -12px;
+            padding-bottom: 5px;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container-scroller">
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <!-- <div class="navbar-brand-wrapper d-flex align-items-center mobile-item">
+                <a class="navbar-brand brand-logo" href="dashboard.html">
+                    <img src="Admin/images/logo.jpg" alt="logo" class="logo-dark img-thumbnail " style="height:50px" />
+                </a>
+                <a class="navbar-brand brand-logo-mini" href="dashboard.html"><img src="Admin/images/logo.jpg" alt="logo" style="height:100px;width:100px" /></a>
+            </div> -->
+            <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
+                <!-- @*<h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome AVN Coaching dashboard!</h5>*@ -->
+                <h5 class="mb-0 font-weight-medium d-lg-flex heading-txt" style="text-shadow: 2px 1px #e7d9d9;font-weight:bold;"> Vehicle Management </h5>
+                <ul class="navbar-nav navbar-nav-right ml-auto">
+
+                 
+                            <li class="nav-item dropdown d-xl-inline-flex user-dropdown">
+                                <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                    <img class="img-xs rounded-circle ml-2" src="Admin/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> admin</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                                    <div class="dropdown-header text-center">
+                                        <img class="img-md rounded-circle" src="Admin/images/faces/face8.jpg" alt="Profile image">
+                                        <p class="mb-1 mt-3"> admin <span class="fa fa-check-circle-o text-success"></span></p>
+                                        <p class="font-weight-light text-muted mb-0">admin</p>
+                                    </div>
+                                    <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile </a>
+                                    <a class="dropdown-item" onclick="openChangePassModal()"><i class="dropdown-item-icon icon-lock-open text-primary"></i> Change Password</a>
+                                    <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="Account"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+                                </div>
+                            </li>
+
+
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="icon-menu"></span>
+                </button>
+            </div>
+        </nav>
+
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-category">
+                        <span class="nav-link">Menu List</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashbord.html">
+                            <span class="menu-title">Dashboard</span>
+                            <i class="icon-screen-desktop menu-icon"></i>
+                        </a>
+                    </li>
+                    <!-- @*<li class="nav-item nav-category"><span class="nav-link">UI Elements</span></li>*@ -->
+                    <li class="nav-item">
+                        <a class="nav-link " data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">Master</span>
+                            <i class="icon-options menu-icon"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column  ">
+                                <li class="nav-item p-0"> <a class="nav-link mt-tg" href="#">Personal Vehicle &nbsp;<i class="fa fa-user-plus"></i></a></li>
+                                <li class="nav-item p-0"> <a class="nav-link mt-tg" href="#">Passenger Vehicle &nbsp;<i class="fa fa-users"></i></a></li>
+                                <li class="nav-item p-0"> <a class="nav-link mt-tg" href="#">Machinary Vehicle &nbsp;<i class="fa fa-wrench"></i></a></li>
+                                <li class="nav-item p-0"> <a class="nav-link mt-tg" href="#">Vehicle Report &nbsp;<i class="fa fa-book"></i></a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+              
+                <div class="content-wrapper">
+                         <h4 style="text-shadow: 2px 1px #e7d9d9;font-weight:bold;">Add Personal Vehicle</h4><hr />
+                         <div class="personal-vehicle-form">
+                            <div class="container-fluid p-3 mobile-container">
+                                <fieldset class="p-2" style="border:solid 1px rgba(0, 0, 0, 0.1); background:#faf9f9">
+                                    <legend class="w-auto" style="font-size: 14px;text-shadow: 2px 1px #e7d9d9;font-weight:bold;"> Personal Vehicle form</legend>
+                                    <div class="p-3">
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                   
+                                                    <label for="vehicle_no">VEHICLE NO</label>
+                                                    <input type="text" class="form-control form-control-sm" id="vehicle_no" placeholder="VEHICLE NO">
+                                                    <div id="vehicle_no-error"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="vehicle_type">VEHICLE TYPE</label>
+                                                    <input type="text" id="vehicle_type" class="form-control form-control-sm" placeholder="VEHICLE TYPE">
+                                                    <div id="vehicle_type-error"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="vehicle_model">VEHICLE MODEL </label>
+                                                     <input type="text" class="form-control form-control-sm" id="vehicle_model" placeholder="VEHICLE MODEL">
+                                                    <div id="vehicle_model-error"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="vehicle_owner_name">VEHICLE OWNER NAME</label>
+                                                     <input type="text" class="form-control form-control-sm" id="vehicle_owner_name" placeholder="VEHICLE OWNER NAME">
+                                                    <div id="vehicle_owner_name-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="vehicle_owner_address">VEHICLE OWNER ADDRESS</label>
+                                                     <input type="text" class="form-control form-control-sm" id="vehicle_owner_address" placeholder="VEHICLE OWNER ADDRESS">
+                                                    <div id="vehicle_owner_address-error"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="owner_mobile_no">OWNER MOBILE NO</label>
+                                                     <input type="text" class="form-control form-control-sm" id="owner_mobile_no"  placeholder="OWNER MOBILE NO">
+                                                    <div id="owner_mobile_no-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="vehicle_engine_no">VEHICLE ENGINE NO</label>
+                                                     <input type="text" class="form-control form-control-sm" id="vehicle_engine_no"  placeholder="VEHICLE ENGINE NO">
+                                                    <div id="vehicle_engine_no-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="vehicle_chassis_no">VEHICLE CHASSIS NO</label>
+                                                     <input type="text" class="form-control form-control-sm" id="vehicle_chassis_no"  placeholder="VEHICLE CHASSIS NO">
+                                                    <div id="vehicle_chassis_no-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="carrying_capacity">CARRYING CAPACITY</label>
+                                                     <input type="text" class="form-control form-control-sm" id="carrying_capacity"  placeholder="CARRYING CAPACITY">
+                                                    <div id="carrying_capacity-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="fitness_expiry_date">FITNESS EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="fitness_expiry_date"  placeholder="FITNESS EXPIRY DATE">
+                                                    <div id="fitness_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="insurance_expiry_date">INSURANCE EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="insurance_expiry_date"  placeholder="INSURANCE EXPIRY DATE">
+                                                    <div id="insurance_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="puc_expiry_date">PUC EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="puc_expiry_date"  placeholder="PUC EXPIRY DATE">
+                                                    <div id="puc_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="tax_expiry_date">TAX EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="tax_expiry_date"  placeholder="TAX EXPIRY DATE">
+                                                    <div id="tax_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="gate_pass_expiry_date">GATE PASS EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="gate_pass_expiry_date"  placeholder="GATE PASS EXPIRY DATE">
+                                                    <div id="gate_pass_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="gate_pass_expiry_date">GATE PASS EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="gate_pass_expiry_date"  placeholder="GATE PASS EXPIRY DATE">
+                                                    <div id="gate_pass_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="dac_expiry_date">DAC EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="dac_expiry_date"  placeholder="DAC EXPIRY DATE">
+                                                    <div id="dac_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="permit_expiry_date">PERMIT EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="permit_expiry_date"  placeholder="PERMIT EXPIRY DATE">
+                                                    <div id="permit_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="permit_expiry_date">DRIVING LICENSE EXPIRY DATE</label>
+                                                     <input type="text" class="form-control form-control-sm" id="permit_expiry_date"  placeholder="DRIVING LICENSE EXPIRY DATE">
+                                                    <div id="permit_expiry_date-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="vehicle_rc_copy">VEHICLE RC COPY</label>
+                                                     <input type="file" class="form-control form-control-sm" id="vehicle_rc_copy"  placeholder="VEHICLE RC COPY">
+                                                    <div id="vehicle_rc_copy-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="road_tax_copy">ROAD TAX COPY</label>
+                                                     <input type="file" class="form-control form-control-sm" id="road_tax_copy"  placeholder="ROAD TAX COPY">
+                                                    <div id="road_tax_copy-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="fitness_certificate">FITNESS CERTIFICATE</label>
+                                                     <input type="file" class="form-control form-control-sm" id="fitness_certificate"  placeholder="FITNESS CERTIFICATE">
+                                                    <div id="fitness_certificate-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="insurance_copy">INSURANCE COPY</label>
+                                                     <input type="file" class="form-control form-control-sm" id="insurance_copy"  placeholder="INSURANCE COPY">
+                                                    <div id="insurance_copy-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="puc_certificate">PUC CERTIFICATE</label>
+                                                     <input type="file" class="form-control form-control-sm" id="puc_certificate"  placeholder="PUC CERTIFICATE">
+                                                    <div id="puc_certificate-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="driving_licence">DRIVING LICENSE</label>
+                                                     <input type="file" class="form-control form-control-sm" id="driving_licence"  placeholder="DRIVING LICENSE">
+                                                    <div id="driving_licence-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="driving_licence">DRIVING LICENSE</label>
+                                                     <input type="file" class="form-control form-control-sm" id="driving_licence"  placeholder="DRIVING LICENSE">
+                                                    <div id="driving_licence-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="gate_paas">GATE PASS</label>
+                                                     <input type="file" class="form-control form-control-sm" id="gate_paas"  placeholder="GATE PASS">
+                                                    <div id="gate_paas-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="driver_authorization_card">DRIVER AUTHORIZATION CARD</label>
+                                                     <input type="file" class="form-control form-control-sm" id="driver_authorization_card"  placeholder="DRIVER AUTHORIZATION CARD">
+                                                    <div id="driver_authorization_card-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="self_declaration_form">SELF DECLARATION FORM</label>
+                                                     <input type="file" class="form-control form-control-sm" id="self_declaration_form"  placeholder="SELF DECLARATION FORM">
+                                                    <div id="self_declaration_form-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="self_safety_form">VEHICLE SAFETY FORM</label>
+                                                     <input type="file" class="form-control form-control-sm" id="self_safety_form"  placeholder="VEHICLE SAFETY FORM">
+                                                    <div id="self_safety_form-error"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                                <div class="form-group">
+                                                    <label for="permit">PERMIT</label>
+                                                     <input type="text" class="form-control form-control-sm" id="permit"  placeholder="PERMIT">
+                                                    <div id="permit-error"></div>
+                                                </div>
+                                            </div>
+                    
+                                        </div>
+                                        <div class="float-right">
+                                            <button class="btn btn-success" id="btnSave" onclick="addStudent()">Save <i class="fa fa-save"></i></button>
+                                        </div>
+                                    </div>
+                    
+                                </fieldset>
+                            </div>
+                        </div>
+
+                </div>
+                
+              
+                <footer class="footer bg-dark">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between ">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block" style="margin-top: 15px;">Copyright © 2020 <a href="#" >SNPLTechInfo</a>. All rights reserved.</span>
+                    </div>
+                </footer>
+                <div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Change PAssword Modal--->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background:#d78585">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Change New Password</h5>
+                    <button type="button" class="close" style="" onclick="closeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="login100-form">
+                        <div class="wrap-input100 validate-input m-b-16">
+                            <input class="input100" type="text" id="email" placeholder="Email">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <span class="lnr lnr-envelope"></span>
+                            </span>
+                        </div>
+                        <div class="email-error"></div>
+                        <div class="wrap-input100 validate-input m-b-16">
+                            <input class="input100" type="password" id="password" placeholder="Password">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <span class="lnr lnr-lock"></span>
+                            </span>
+                        </div>
+                        <div class="pass-error"></div>
+                        <div class="wrap-input100 validate-input m-b-16">
+                            <input class="input100" type="password" id="con-password" placeholder="Confirm Password">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <span class="lnr lnr-lock"></span>
+                            </span>
+                        </div>
+                        <div class="conpass-error"></div>
+                        <div class="container-login100-form-btn p-t-25">
+                            <button class="login100-form-btn" id="btnChangePass" onclick="ChangePasswordAuthentication()">
+                                Change Password
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!----------Modal close--------->
+    <!-- partial -->
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- @*<script src="~/login/vendor/jquery/jquery-3.2.1.min.js"></script>*@ -->
+    <script src="Admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="Admin/vendors/moment/moment.min.js"></script>
+    <script src="Admin/vendors/daterangepicker/daterangepicker.js"></script>
+    <script src="Admin/vendors/chartist/chartist.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="Admin/js/off-canvas.js"></script>
+    <script src="Admin/js/misc.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- @*<script src="Admin/js/dashboard.js"></script>*@
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>*@ -->
+
+</body>
+</html >
