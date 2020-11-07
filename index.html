@@ -33,9 +33,12 @@
                                 <!-- User Name Input -->
                                 <div class="form-group row justify-content-center px-3">
                                     <div class="col-9 px-0"> <input id="admin_id" type="text" placeholder="&#xf007; &nbsp; Admin ID" class="form-control border-info placeicon"> </div>
+                                     <div id="adminid_error" class="text-danger"></div>
                                 </div> <!-- Password Input -->
                                 <div class="form-group row justify-content-center px-3">
                                     <div class="col-9 px-0"> <input id="password" type="password" placeholder="&#xf084; &nbsp; &#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" class="form-control border-info placeicon"> </div>
+                                    <div id="password_error" class="text-danger"></div>
+                                
                                 </div> <!-- CheckBox Remember Me-->
                                 <div class="form-group row justify-content-center px-3">
                                     <div class="col-9">
@@ -44,7 +47,7 @@
                                 </div> <!-- Log in Button -->
                                 <div class="form-group justify-content-center">
                                     <div class="text-center"> <button class="btn btn-info" onclick="loginBtn()">Log in</button> </div>
-                                </div>
+                                   </div>
                             </div>
                         </div> <!-- Alternative Login -->
                        
@@ -55,26 +58,43 @@
     </div>
 
     <script>
+        $(document).ready(()=>{
+            $("#admin_id").blur(()=>{
+                $("#adminid_error").html(null)
+            })
+
+            $("#password").blur(()=>{
+                $("#password_error").html(null)
+            })
+        })
         function loginBtn(){
             let adminId =$("#admin_id").val();
             let password =$("#password").val();
+            
             if(adminId==""){
-                alert("please enter admin id")
+                $("#adminid_error").html("<small>Please Enter the Admin ID</small>");
+            }
+            if(password==""){
+                $("#password_error").html("<small>Please Enter the Password</small>");
             }
 
-            if(password==""){
-                alert("please enter the password")
-            }
+            
 
             if(adminId!=="" && password!==""){
                 if(adminId=="Admin12345" && password=="123456"){
                     window.location.replace('/vehicle_management/dashbord.html');
                 }else{
-                    alert("Sorry AdminId and Password Incorrect");
+                   // alert("Sorry AdminId and Password Incorrect");
+                    Swal.fire({
+                    icon: 'error',
+                    text: 'Sorry AdminId and Password Incorrect',
+                   
+              })
                 }
             }
 
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>
