@@ -77,7 +77,7 @@
     width: 100%;
     height: 100vh;
     position: fixed;
-    background: #fff url(../images/loader.gif) no-repeat;
+    background: #fff url('/images/loader.gif') no-repeat;
     background-position: center;
     z-index: 9999;
 }
@@ -210,7 +210,7 @@
                                             <div class="col-md-3 col-sm-3 col-xs-3">
                                                 <div class="form-group">
                                                     <label for="owner_mobile_no">OWNER MOBILE NO</label>
-                                                     <input type="text" class="form-control form-control-sm" id="owner_mobile_no"  placeholder="OWNER MOBILE NO">
+                                                     <input type="text" class="form-control form-control-sm" maxlength="10" name="mobile_no" id="owner_mobile_no"  placeholder="OWNER MOBILE NO">
                                                     <div id="owner_mobile_no-error"></div>
                                                 </div>
                                             </div>
@@ -345,14 +345,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <div class="form-group">
-                                                    <label for="driving_licence">DRIVING LICENSE</label>
-                                                     <input type="file" class="form-control form-control-sm" id="driving_licence"  placeholder="DRIVING LICENSE">
-                                                    <div id="driving_licence-error"></div>
-                                                </div>
-                                            </div>
-
+                                           
                                             <div class="col-md-3 col-sm-3 col-xs-3">
                                                 <div class="form-group">
                                                     <label for="driving_licence">DRIVING LICENSE</label>
@@ -492,6 +485,17 @@
     <!-- @*<script src="Admin/js/dashboard.js"></script>*@
     @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>*@ -->
     <script>
+
+// number digit
+$('input[name="mobile_no"]').keyup(function(e)
+                                {
+  if (/\D/g.test(this.value))
+  {
+    // Filter non-digits from input value.
+    this.value = this.value.replace(/\D/g, '');
+  }
+});
+
         $('#fitness_expiry_date').datepicker({
         uiLibrary: 'bootstrap4'
     });
