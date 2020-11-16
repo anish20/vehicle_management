@@ -110,7 +110,7 @@
                  
                             <li class="nav-item dropdown d-xl-inline-flex user-dropdown">
                                 <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                                    <img class="img-xs rounded-circle ml-2" src="Admin/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> admin</span>
+                                    <img class="img-xs rounded-circle ml-2 res-img" src="Admin/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> admin</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                                     <div class="dropdown-header text-center">
@@ -120,8 +120,7 @@
                                     </div>
                                     <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile </a>
                                     <a class="dropdown-item" onclick="openChangePassModal()"><i class="dropdown-item-icon icon-lock-open text-primary"></i> Change Password</a>
-                                    <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>
-                                    <a class="dropdown-item" asp-action="Index" asp-controller="Account"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
+                                   <a class="dropdown-item" href="index.html"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
                                 </div>
                             </li>
 
@@ -150,7 +149,7 @@
                     <!-- @*<li class="nav-item nav-category"><span class="nav-link">UI Elements</span></li>*@ -->
                     <li class="nav-item">
                         <a class="nav-link " data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">Master</span>
+                            <span class="menu-title">Vehicle Master</span>
                             <i class="icon-options menu-icon"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
@@ -158,9 +157,20 @@
                                 <li class="nav-item p-0"> <a class="nav-link mt-tg" href="personal_vehicle.html">Personal Vehicle &nbsp;<i class="fa fa-user-plus"></i></a></li>
                                 <li class="nav-item p-0"> <a class="nav-link mt-tg" href="passenger_vehicle.html">Passenger Vehicle &nbsp;<i class="fa fa-users"></i></a></li>
                                 <li class="nav-item p-0"> <a class="nav-link mt-tg" href="personal_vehicle.html">Machinary Vehicle &nbsp;<i class="fa fa-wrench"></i></a></li>
-                                <li class="nav-item p-0"> <a class="nav-link mt-tg" href="vehicle_report.html">Vehicle Report &nbsp;<i class="fa fa-book"></i></a></li>
-                            </ul>
+                               </ul>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vehicle_report.html">
+                            <span class="menu-title">Vehical Report</span>
+                            <i class="icon-book-open menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="menu-title">Users</span>
+                            <i class="fa fa-users menu-icon"></i>
+                        </a>
                     </li>
 
                 </ul>
@@ -690,7 +700,7 @@
               
                 <footer class="footer bg-dark">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between ">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block" style="margin-top: 15px;">Copyright © 2020 <a href="#" >SNPLTechInfo</a>. All rights reserved.</span>
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block" style="margin-top: 15px;">Copyright © 2020 <a href="#" >SNPL info tech</a>. All rights reserved.</span>
                     </div>
                 </footer>
                 <div>
