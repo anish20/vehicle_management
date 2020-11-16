@@ -119,3 +119,12 @@ div.dataTables_wrapper div.dataTables_filter {
     display: inline-table;
    
 }
+
+.find-bar{
+    background-color: rgb(182, 178, 178);
+    padding: 30px 50px;
+}
+
+.vehicle_date{
+    margin-top: 30px;
+}
